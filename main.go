@@ -251,7 +251,7 @@ func printJSON(val interface{}) {
 }
 
 func printHelp() {
-	fmt.Println(`GCP Pricing Calculator MCP Server & CLI Tool (Golang - All Products)
+	fmt.Print(`GCP Pricing Calculator MCP Server & CLI Tool (Golang - All Products)
 
 Usage:
   gcp-calculator-mcp [command] [flags]

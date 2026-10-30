@@ -1,6 +1,12 @@
 # GCP Calculator MCP Server (Golang)
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/Mireu-Lab/GCP-Calculator-MCP.svg)](https://pkg.go.dev/github.com/Mireu-Lab/GCP-Calculator-MCP)
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![GitHub Wiki](https://img.shields.io/badge/docs-GitHub_Wiki-brightgreen.svg)](https://github.com/Mireu-Lab/GCP-Calculator-MCP/wiki)
+[![Go CI](https://github.com/Mireu-Lab/GCP-Calculator-MCP/actions/workflows/ci.yml/badge.svg)](https://github.com/Mireu-Lab/GCP-Calculator-MCP/actions)
+
+
+[![Go Reference](https://pkg.go.dev/badge/github.com/Mireu-Lab/GCP-Calculator-MCP.svg)](https://pkg.go.dev/github.com/Mireu-Lab/GCP-Calculator-MCP)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Go Version](https://img.shields.io/badge/Go-1.21%2B-00ADD8?logo=go)](https://go.dev/)
 
