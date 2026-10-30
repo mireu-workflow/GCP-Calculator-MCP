@@ -100,17 +100,17 @@ func (s *Server) handleToolsList(id interface{}) {
 			"inputSchema": map[string]interface{}{
 				"type": "object",
 				"properties": map[string]interface{}{
-					"machine_type": map[string]interface{}{"type": "string", "default": "e2-micro"},
-					"region": map[string]interface{}{"type": "string", "default": "us-central1", "description": "e.g. us-central1, us-west1, asia-northeast3 (Seoul)"},
-					"commitment": map[string]interface{}{"type": "string", "default": "none", "description": "none, 1-year, 3-year"},
-					"hours_per_month": map[string]interface{}{"type": "number", "default": 730},
-					"is_spot": map[string]interface{}{"type": "boolean", "default": false},
-					"gpu_type": map[string]interface{}{"type": "string", "description": "e.g. nvidia-tesla-t4, nvidia-l4, nvidia-tesla-a100-80gb, nvidia-h100-80gb"},
-					"gpu_count": map[string]interface{}{"type": "number", "default": 0},
-					"tpu_type": map[string]interface{}{"type": "string", "description": "e.g. tpu-v2-8, tpu-v3-8, tpu-v4-pod-8, tpu-v5litepod-8, tpu-v5p-8"},
-					"tpu_count": map[string]interface{}{"type": "number", "default": 0},
-					"storage_gb": map[string]interface{}{"type": "number", "default": 20},
-					"storage_type": map[string]interface{}{"type": "string", "default": "standard", "description": "standard, balanced, ssd, extreme"},
+					"machine_type":     map[string]interface{}{"type": "string", "default": "e2-micro"},
+					"region":           map[string]interface{}{"type": "string", "default": "us-central1", "description": "e.g. us-central1, us-west1, asia-northeast3 (Seoul)"},
+					"commitment":       map[string]interface{}{"type": "string", "default": "none", "description": "none, 1-year, 3-year"},
+					"hours_per_month":  map[string]interface{}{"type": "number", "default": 730},
+					"is_spot":          map[string]interface{}{"type": "boolean", "default": false},
+					"gpu_type":         map[string]interface{}{"type": "string", "description": "e.g. nvidia-tesla-t4, nvidia-l4, nvidia-tesla-a100-80gb, nvidia-h100-80gb"},
+					"gpu_count":        map[string]interface{}{"type": "number", "default": 0},
+					"tpu_type":         map[string]interface{}{"type": "string", "description": "e.g. tpu-v2-8, tpu-v3-8, tpu-v4-pod-8, tpu-v5litepod-8, tpu-v5p-8"},
+					"tpu_count":        map[string]interface{}{"type": "number", "default": 0},
+					"storage_gb":       map[string]interface{}{"type": "number", "default": 20},
+					"storage_type":     map[string]interface{}{"type": "string", "default": "standard", "description": "standard, balanced, ssd, extreme"},
 					"provisioned_iops": map[string]interface{}{"type": "number", "default": 0, "description": "Provisioned IOPS for Extreme PD or Hyperdisk"},
 				},
 			},
@@ -122,10 +122,10 @@ func (s *Server) handleToolsList(id interface{}) {
 				"type": "object",
 				"properties": map[string]interface{}{
 					"requests_per_month": map[string]interface{}{"type": "number", "default": 1000000},
-					"cpu_cores": map[string]interface{}{"type": "number", "default": 1},
-					"memory_gb": map[string]interface{}{"type": "number", "default": 0.5},
-					"avg_duration_ms": map[string]interface{}{"type": "number", "default": 200},
-					"concurrency": map[string]interface{}{"type": "number", "default": 80},
+					"cpu_cores":          map[string]interface{}{"type": "number", "default": 1},
+					"memory_gb":          map[string]interface{}{"type": "number", "default": 0.5},
+					"avg_duration_ms":    map[string]interface{}{"type": "number", "default": 200},
+					"concurrency":        map[string]interface{}{"type": "number", "default": 80},
 				},
 			},
 		},
@@ -135,8 +135,8 @@ func (s *Server) handleToolsList(id interface{}) {
 			"inputSchema": map[string]interface{}{
 				"type": "object",
 				"properties": map[string]interface{}{
-					"storage_gb": map[string]interface{}{"type": "number", "default": 50},
-					"storage_class": map[string]interface{}{"type": "string", "default": "standard"},
+					"storage_gb":        map[string]interface{}{"type": "number", "default": 50},
+					"storage_class":     map[string]interface{}{"type": "string", "default": "standard"},
 					"network_egress_gb": map[string]interface{}{"type": "number", "default": 5},
 				},
 			},
@@ -147,9 +147,9 @@ func (s *Server) handleToolsList(id interface{}) {
 			"inputSchema": map[string]interface{}{
 				"type": "object",
 				"properties": map[string]interface{}{
-					"mode": map[string]interface{}{"type": "string", "description": "'autopilot' or 'standard'", "default": "autopilot"},
-					"node_count": map[string]interface{}{"type": "number", "default": 3},
-					"vcpus_per_node": map[string]interface{}{"type": "number", "default": 2},
+					"mode":            map[string]interface{}{"type": "string", "description": "'autopilot' or 'standard'", "default": "autopilot"},
+					"node_count":      map[string]interface{}{"type": "number", "default": 3},
+					"vcpus_per_node":  map[string]interface{}{"type": "number", "default": 2},
 					"mem_gb_per_node": map[string]interface{}{"type": "number", "default": 4},
 				},
 			},
@@ -160,8 +160,8 @@ func (s *Server) handleToolsList(id interface{}) {
 			"inputSchema": map[string]interface{}{
 				"type": "object",
 				"properties": map[string]interface{}{
-					"instance_type": map[string]interface{}{"type": "string", "default": "db-f1-micro"},
-					"storage_gb": map[string]interface{}{"type": "number", "default": 10},
+					"instance_type":     map[string]interface{}{"type": "string", "default": "db-f1-micro"},
+					"storage_gb":        map[string]interface{}{"type": "number", "default": 10},
 					"high_availability": map[string]interface{}{"type": "boolean", "default": false},
 				},
 			},
@@ -172,7 +172,7 @@ func (s *Server) handleToolsList(id interface{}) {
 			"inputSchema": map[string]interface{}{
 				"type": "object",
 				"properties": map[string]interface{}{
-					"query_tb_scanned": map[string]interface{}{"type": "number", "default": 2.0},
+					"query_tb_scanned":  map[string]interface{}{"type": "number", "default": 2.0},
 					"active_storage_gb": map[string]interface{}{"type": "number", "default": 50.0},
 				},
 			},
@@ -184,7 +184,7 @@ func (s *Server) handleToolsList(id interface{}) {
 				"type": "object",
 				"properties": map[string]interface{}{
 					"service_name": map[string]interface{}{"type": "string", "description": "Target GCP product name"},
-					"params": map[string]interface{}{"type": "object", "description": "Service parameters"},
+					"params":       map[string]interface{}{"type": "object", "description": "Service parameters"},
 				},
 				"required": []string{"service_name"},
 			},
@@ -196,8 +196,8 @@ func (s *Server) handleToolsList(id interface{}) {
 				"type": "object",
 				"properties": map[string]interface{}{
 					"compute_engine": map[string]interface{}{"type": "object"},
-					"cloud_run": map[string]interface{}{"type": "object"},
-					"storage": map[string]interface{}{"type": "object"},
+					"cloud_run":      map[string]interface{}{"type": "object"},
+					"storage":        map[string]interface{}{"type": "object"},
 				},
 			},
 		},

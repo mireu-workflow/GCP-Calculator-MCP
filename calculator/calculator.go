@@ -125,18 +125,18 @@ type ComputeEngineInput struct {
 }
 
 type ComputeEngineResult struct {
-	MachineType      string  `json:"machine_type"`
-	Region           string  `json:"region"`
-	Commitment       string  `json:"commitment"`
-	HourlyRate       float64 `json:"hourly_rate_usd"`
-	GPUCost          float64 `json:"gpu_cost_usd"`
-	TPUCost          float64 `json:"tpu_cost_usd"`
-	ComputeCost      float64 `json:"compute_cost_usd"`
-	StorageCost      float64 `json:"storage_cost_usd"`
-	TotalMonthlyUSD  float64 `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64 `json:"total_monthly_cost_krw"`
-	IsSpot           bool    `json:"is_spot"`
-	SavingsTip       string  `json:"savings_tip"`
+	MachineType     string  `json:"machine_type"`
+	Region          string  `json:"region"`
+	Commitment      string  `json:"commitment"`
+	HourlyRate      float64 `json:"hourly_rate_usd"`
+	GPUCost         float64 `json:"gpu_cost_usd"`
+	TPUCost         float64 `json:"tpu_cost_usd"`
+	ComputeCost     float64 `json:"compute_cost_usd"`
+	StorageCost     float64 `json:"storage_cost_usd"`
+	TotalMonthlyUSD float64 `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64 `json:"total_monthly_cost_krw"`
+	IsSpot          bool    `json:"is_spot"`
+	SavingsTip      string  `json:"savings_tip"`
 }
 
 func CalculateComputeEngine(input ComputeEngineInput) ComputeEngineResult {
@@ -212,18 +212,18 @@ func CalculateComputeEngine(input ComputeEngineInput) ComputeEngineResult {
 	}
 
 	return ComputeEngineResult{
-		MachineType:      machine,
-		Region:           input.Region,
-		Commitment:       input.Commitment,
-		HourlyRate:       math.Round(rate*10000) / 10000,
-		GPUCost:          math.Round(gpuCost*100) / 100,
-		TPUCost:          math.Round(tpuCost*100) / 100,
-		ComputeCost:      math.Round(computeCost*100) / 100,
-		StorageCost:      math.Round(storageCost*100) / 100,
-		TotalMonthlyUSD:  math.Round(totalUSD*100) / 100,
-		TotalMonthlyKRW:  math.Round(totalKRW),
-		IsSpot:           input.IsSpot,
-		SavingsTip:       tip,
+		MachineType:     machine,
+		Region:          input.Region,
+		Commitment:      input.Commitment,
+		HourlyRate:      math.Round(rate*10000) / 10000,
+		GPUCost:         math.Round(gpuCost*100) / 100,
+		TPUCost:         math.Round(tpuCost*100) / 100,
+		ComputeCost:     math.Round(computeCost*100) / 100,
+		StorageCost:     math.Round(storageCost*100) / 100,
+		TotalMonthlyUSD: math.Round(totalUSD*100) / 100,
+		TotalMonthlyKRW: math.Round(totalKRW),
+		IsSpot:          input.IsSpot,
+		SavingsTip:      tip,
 	}
 }
 
@@ -292,12 +292,12 @@ type StorageInput struct {
 }
 
 type StorageResult struct {
-	StorageClass     string  `json:"storage_class"`
-	StorageCost      float64 `json:"storage_cost_usd"`
-	EgressCost       float64 `json:"egress_cost_usd"`
-	TotalMonthlyUSD  float64 `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64 `json:"total_monthly_cost_krw"`
-	SavingsTip       string  `json:"savings_tip"`
+	StorageClass    string  `json:"storage_class"`
+	StorageCost     float64 `json:"storage_cost_usd"`
+	EgressCost      float64 `json:"egress_cost_usd"`
+	TotalMonthlyUSD float64 `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64 `json:"total_monthly_cost_krw"`
+	SavingsTip      string  `json:"savings_tip"`
 }
 
 func CalculateStorage(input StorageInput) StorageResult {
@@ -319,12 +319,12 @@ func CalculateStorage(input StorageInput) StorageResult {
 	totalKRW := totalUSD * GetExchangeRate()
 
 	return StorageResult{
-		StorageClass:     input.StorageClass,
-		StorageCost:      math.Round(storageCost*100) / 100,
-		EgressCost:       math.Round(egressCost*100) / 100,
-		TotalMonthlyUSD:  math.Round(totalUSD*100) / 100,
-		TotalMonthlyKRW:  math.Round(totalKRW),
-		SavingsTip:       "Nearline/Coldline lifecycle policies save storage costs.",
+		StorageClass:    input.StorageClass,
+		StorageCost:     math.Round(storageCost*100) / 100,
+		EgressCost:      math.Round(egressCost*100) / 100,
+		TotalMonthlyUSD: math.Round(totalUSD*100) / 100,
+		TotalMonthlyKRW: math.Round(totalKRW),
+		SavingsTip:      "Nearline/Coldline lifecycle policies save storage costs.",
 	}
 }
 
@@ -338,12 +338,12 @@ type GKEInput struct {
 }
 
 type GKEResult struct {
-	Mode             string  `json:"mode"`
-	ClusterFeeCost   float64 `json:"cluster_fee_usd"`
-	WorkloadCost     float64 `json:"workload_cost_usd"`
-	TotalMonthlyUSD  float64 `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64 `json:"total_monthly_cost_krw"`
-	SavingsTip       string  `json:"savings_tip"`
+	Mode            string  `json:"mode"`
+	ClusterFeeCost  float64 `json:"cluster_fee_usd"`
+	WorkloadCost    float64 `json:"workload_cost_usd"`
+	TotalMonthlyUSD float64 `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64 `json:"total_monthly_cost_krw"`
+	SavingsTip      string  `json:"savings_tip"`
 }
 
 func CalculateGKE(input GKEInput) GKEResult {
@@ -374,12 +374,12 @@ func CalculateGKE(input GKEInput) GKEResult {
 	totalKRW := totalUSD * GetExchangeRate()
 
 	return GKEResult{
-		Mode:             input.Mode,
-		ClusterFeeCost:   math.Round(clusterFee*100) / 100,
-		WorkloadCost:     math.Round(workloadCost*100) / 100,
-		TotalMonthlyUSD:  math.Round(totalUSD*100) / 100,
-		TotalMonthlyKRW:  math.Round(totalKRW),
-		SavingsTip:       "Autopilot eliminates unallocated node capacity cost.",
+		Mode:            input.Mode,
+		ClusterFeeCost:  math.Round(clusterFee*100) / 100,
+		WorkloadCost:    math.Round(workloadCost*100) / 100,
+		TotalMonthlyUSD: math.Round(totalUSD*100) / 100,
+		TotalMonthlyKRW: math.Round(totalKRW),
+		SavingsTip:      "Autopilot eliminates unallocated node capacity cost.",
 	}
 }
 
@@ -392,12 +392,12 @@ type CloudSQLInput struct {
 }
 
 type CloudSQLResult struct {
-	InstanceType     string  `json:"instance_type"`
-	ComputeCost      float64 `json:"compute_cost_usd"`
-	StorageCost      float64 `json:"storage_cost_usd"`
-	TotalMonthlyUSD  float64 `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64 `json:"total_monthly_cost_krw"`
-	SavingsTip       string  `json:"savings_tip"`
+	InstanceType    string  `json:"instance_type"`
+	ComputeCost     float64 `json:"compute_cost_usd"`
+	StorageCost     float64 `json:"storage_cost_usd"`
+	TotalMonthlyUSD float64 `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64 `json:"total_monthly_cost_krw"`
+	SavingsTip      string  `json:"savings_tip"`
 }
 
 func CalculateCloudSQL(input CloudSQLInput) CloudSQLResult {
@@ -425,12 +425,12 @@ func CalculateCloudSQL(input CloudSQLInput) CloudSQLResult {
 	totalKRW := totalUSD * GetExchangeRate()
 
 	return CloudSQLResult{
-		InstanceType:     input.InstanceType,
-		ComputeCost:      math.Round(computeCost*100) / 100,
-		StorageCost:      math.Round(storageCost*100) / 100,
-		TotalMonthlyUSD:  math.Round(totalUSD*100) / 100,
-		TotalMonthlyKRW:  math.Round(totalKRW),
-		SavingsTip:       "Use db-f1-micro or db-g1-small for dev/test environments.",
+		InstanceType:    input.InstanceType,
+		ComputeCost:     math.Round(computeCost*100) / 100,
+		StorageCost:     math.Round(storageCost*100) / 100,
+		TotalMonthlyUSD: math.Round(totalUSD*100) / 100,
+		TotalMonthlyKRW: math.Round(totalKRW),
+		SavingsTip:      "Use db-f1-micro or db-g1-small for dev/test environments.",
 	}
 }
 
@@ -441,11 +441,11 @@ type BigQueryInput struct {
 }
 
 type BigQueryResult struct {
-	QueryCost        float64 `json:"query_cost_usd"`
-	StorageCost      float64 `json:"storage_cost_usd"`
-	TotalMonthlyUSD  float64 `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64 `json:"total_monthly_cost_krw"`
-	SavingsTip       string  `json:"savings_tip"`
+	QueryCost       float64 `json:"query_cost_usd"`
+	StorageCost     float64 `json:"storage_cost_usd"`
+	TotalMonthlyUSD float64 `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64 `json:"total_monthly_cost_krw"`
+	SavingsTip      string  `json:"savings_tip"`
 }
 
 func CalculateBigQuery(input BigQueryInput) BigQueryResult {
@@ -459,11 +459,11 @@ func CalculateBigQuery(input BigQueryInput) BigQueryResult {
 	totalKRW := totalUSD * GetExchangeRate()
 
 	return BigQueryResult{
-		QueryCost:        math.Round(queryCost*100) / 100,
-		StorageCost:      math.Round(storageCost*100) / 100,
-		TotalMonthlyUSD:  math.Round(totalUSD*100) / 100,
-		TotalMonthlyKRW:  math.Round(totalKRW),
-		SavingsTip:       "BigQuery includes 1TB queries and 10GB storage FREE per month.",
+		QueryCost:       math.Round(queryCost*100) / 100,
+		StorageCost:     math.Round(storageCost*100) / 100,
+		TotalMonthlyUSD: math.Round(totalUSD*100) / 100,
+		TotalMonthlyKRW: math.Round(totalKRW),
+		SavingsTip:      "BigQuery includes 1TB queries and 10GB storage FREE per month.",
 	}
 }
 
@@ -474,12 +474,12 @@ type UniversalInput struct {
 }
 
 type UniversalResult struct {
-	ServiceName      string           `json:"service_name"`
-	TotalMonthlyUSD  float64          `json:"total_monthly_cost_usd"`
-	TotalMonthlyKRW  float64          `json:"total_monthly_cost_krw"`
-	CatalogMatches   []CatalogProduct `json:"catalog_matches,omitempty"`
-	Details          interface{}      `json:"details"`
-	SavingsTip       string           `json:"savings_tip"`
+	ServiceName     string           `json:"service_name"`
+	TotalMonthlyUSD float64          `json:"total_monthly_cost_usd"`
+	TotalMonthlyKRW float64          `json:"total_monthly_cost_krw"`
+	CatalogMatches  []CatalogProduct `json:"catalog_matches,omitempty"`
+	Details         interface{}      `json:"details"`
+	SavingsTip      string           `json:"savings_tip"`
 }
 
 func CalculateService(input UniversalInput) UniversalResult {
@@ -613,22 +613,22 @@ func CalculateService(input UniversalInput) UniversalResult {
 		estCostKRW := estCostUSD * GetExchangeRate()
 
 		return UniversalResult{
-			ServiceName:      input.ServiceName,
-			TotalMonthlyUSD:  math.Round(estCostUSD*100) / 100,
-			TotalMonthlyKRW:  math.Round(estCostKRW),
-			CatalogMatches:   matches,
-			Details:          map[string]interface{}{"matched_product": matches[0].SubService, "pricing_unit": unit, "base_rate_usd": rate, "region_multiplier": regMult, "commitment_multiplier": commMult},
-			SavingsTip:       matches[0].CostOptimizationTip,
+			ServiceName:     input.ServiceName,
+			TotalMonthlyUSD: math.Round(estCostUSD*100) / 100,
+			TotalMonthlyKRW: math.Round(estCostKRW),
+			CatalogMatches:  matches,
+			Details:         map[string]interface{}{"matched_product": matches[0].SubService, "pricing_unit": unit, "base_rate_usd": rate, "region_multiplier": regMult, "commitment_multiplier": commMult},
+			SavingsTip:      matches[0].CostOptimizationTip,
 		}
 	}
 
 	return UniversalResult{
-		ServiceName:      svc,
-		TotalMonthlyUSD:  0.0,
-		TotalMonthlyKRW:  0.0,
-		CatalogMatches:   nil,
-		Details:          "Service lookup completed across 115 GCP products in pricing.json.",
-		SavingsTip:       "Check pricing.json.",
+		ServiceName:     svc,
+		TotalMonthlyUSD: 0.0,
+		TotalMonthlyKRW: 0.0,
+		CatalogMatches:  nil,
+		Details:         "Service lookup completed across 115 GCP products in pricing.json.",
+		SavingsTip:      "Check pricing.json.",
 	}
 }
 

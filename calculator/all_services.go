@@ -7,10 +7,10 @@ import (
 
 // AppEngineInput holds inputs for App Engine calculations.
 type AppEngineInput struct {
-	Env            string  `json:"env"` // "standard", "flexible"
-	InstanceClass  string  `json:"instance_class"` // e.g. "F1", "F2", "B1", "B2"
-	InstanceCount  int     `json:"instance_count"`
-	HoursPerMonth  float64 `json:"hours_per_month"`
+	Env           string  `json:"env"`            // "standard", "flexible"
+	InstanceClass string  `json:"instance_class"` // e.g. "F1", "F2", "B1", "B2"
+	InstanceCount int     `json:"instance_count"`
+	HoursPerMonth float64 `json:"hours_per_month"`
 }
 
 type AppEngineResult struct {
@@ -52,7 +52,7 @@ func CalculateAppEngine(input AppEngineInput) AppEngineResult {
 
 // FilestoreInput holds inputs for Filestore calculations.
 type FilestoreInput struct {
-	Tier      string  `json:"tier"` // "basic_hdd", "basic_ssd", "high_scale", "enterprise"
+	Tier       string  `json:"tier"` // "basic_hdd", "basic_ssd", "high_scale", "enterprise"
 	CapacityTB float64 `json:"capacity_tb"`
 }
 
@@ -112,8 +112,8 @@ func CalculateAlloyDB(input AlloyDBInput) AlloyDBResult {
 		input.HoursPerMonth = 730
 	}
 
-	vcpuRate := 0.0544 // per vCPU-hour
-	memRate := 0.00942 // per GB-hour
+	vcpuRate := 0.0544  // per vCPU-hour
+	memRate := 0.00942  // per GB-hour
 	storageRate := 0.30 // per GB-month
 
 	computeCost := (float64(input.VCPUs)*vcpuRate + input.MemoryGB*memRate) * input.HoursPerMonth
