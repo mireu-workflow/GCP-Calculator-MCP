@@ -28,8 +28,10 @@ var (
 func init() {
 	activePolicy = GetDefaultPolicy()
 	locations := []string{
-		"/home/limmireu1214/gcp-calculator-mcp/pricing.json",
+		"pricing.json",
+		"/home/limmireu1214/_projects/_ARCHIVE/_GITHUB-REPO/mireu-workflow/GCP-Calculator-MCP/pricing.json",
 		"/home/limmireu1214/.gemini/config/gcp_pricing.json",
+		"/home/limmireu1214/gcp-calculator-mcp/pricing.json",
 	}
 	for _, loc := range locations {
 		if LoadPricingPolicy(loc) == nil {
@@ -42,9 +44,9 @@ func GetDefaultPolicy() PricingPolicy {
 	prods := GetFullCatalog()
 	return PricingPolicy{
 		UpdatedAt:        time.Now().UTC().Format(time.RFC3339),
-		Version:          "7.0.0-advanced",
+		Version:          "8.1.0-en-usd-official",
 		TotalProducts:    len(prods),
-		CurrencyExchange: map[string]float64{"USD_TO_KRW": 1350.0},
+		CurrencyExchange: map[string]float64{"USD_TO_KRW": 1334.51},
 		RegionMultipliers: map[string]float64{
 			"us-central1":     1.00,
 			"us-east1":        1.00,
@@ -89,7 +91,7 @@ func GetExchangeRate() float64 {
 	if ex, ok := policy.CurrencyExchange["USD_TO_KRW"]; ok && ex > 0 {
 		return ex
 	}
-	return 1383.28
+	return 1334.51
 }
 
 func GetRegionMultiplier(region string) float64 {
@@ -196,7 +198,7 @@ func CalculateComputeEngine(input ComputeEngineInput) ComputeEngineResult {
 	}
 	storageCost := input.StorageGB * diskRate
 	if strings.Contains(strings.ToLower(input.StorageType), "extreme") && input.ProvisionedIOPS > 0 {
-		// Provisioned IOPS: ~89.91 KRW in US (~$0.065), 117.58 KRW in Seoul (~$0.085)
+		// Provisioned IOPS: ~$0.065/IOPS in US (~86.74 KRW), ~$0.085/IOPS in Seoul (~113.43 KRW)
 		iopsMonthlyUSD := 0.065 * regionMult
 		storageCost += input.ProvisionedIOPS * iopsMonthlyUSD * (input.HoursPerMonth / 730.0)
 	}

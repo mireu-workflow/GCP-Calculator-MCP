@@ -37,8 +37,10 @@ func init() {
 // ReloadProductsFromPricingJSON loads the catalog and pricing rates directly from pricing.json.
 func ReloadProductsFromPricingJSON() {
 	locations := []string{
-		"/home/limmireu1214/gcp-calculator-mcp/pricing.json",
+		"pricing.json",
+		"/home/limmireu1214/_projects/_ARCHIVE/_GITHUB-REPO/mireu-workflow/GCP-Calculator-MCP/pricing.json",
 		"/home/limmireu1214/.gemini/config/gcp_pricing.json",
+		"/home/limmireu1214/gcp-calculator-mcp/pricing.json",
 	}
 
 	for _, loc := range locations {
